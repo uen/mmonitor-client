@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>mmonitor</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+      <script src="js/rivets.bundled.min.js"></script>
+</head>
+<body>
+
+      <div class="container">
+           <div id="servers">
+                <div class="server" rv-each-server="servers">
+                     <div class="logo">
+                          <img src="img/server.png">
+                    </div>
+
+                    <div class="name">
+                          <h2 class="full">{server.name}</h2>
+                          <span class="short">{server.hostname}</span>
+                    </div>
+                    <div class="info">
+                          <div class="info-item">
+                               <span class="label">Status</span>
+                               <h2 rv-if="server.online" class="green">Online</h2>
+                               <h2 rv-if="server.offline" class="red">Offline</h2>
+                         </div>
+
+                         <div class="info-item">
+                             <span class="label">CPU</span>
+                             <h2>{server.cpu}%</h2>
+                       </div>
+
+                       <div class="info-item">
+                             <span class="label">Memory</span>
+                             <h2>{server.memory}%</h2>
+                       </div>
+
+                       <div class="info-item">
+                             <span class="label">Processes</span>
+                             <h2>{server.processes}</h2>
+                       </div>
+                 </div>
+           </div>
+     </div>
+</div>
+
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="servers.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+      require('./renderer.js')
+</script>
+
+</body>
+</html>
+
